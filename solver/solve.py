@@ -23,7 +23,6 @@ def solve(exercise: object):
     integer_modulus = exercise["integer_modulus"]
     f = exercise["f"]
 
-    print(exercise_type, exercise_task, integer_modulus, f)
     ### Parse and solve ###
     # Check type of exercise
     if exercise_type == "polynomial_arithmetic":
