@@ -13,9 +13,9 @@
 # Jordy Verhoeven (1001249)
 # Niels Boonstra (1451294)
 ##
-# Import built-in json library for handling input/output
 import json
 
+from polynomial_arithmetic.add import addition
 
 def solve(exercise: object):
     exercise_type = exercise["type"]
@@ -23,25 +23,20 @@ def solve(exercise: object):
     integer_modulus = exercise["integer_modulus"]
     f = exercise["f"]
 
-    ### Parse and solve ###
-    # Check type of exercise
     if exercise_type == "polynomial_arithmetic":
-        # Check what task within the polynomial arithmetic tasks we need to perform
         if exercise_task == "addition":
-            from polynomial_arithmetic.add import addition
             return {"answer": addition(integer_modulus, f, exercise["g"])}
+
         elif exercise_task == "subtraction":
-            # Solve polynomial arithmetic subtraction exercise
-            pass
-        # et cetera
+            return {"answer": None}
     elif exercise_type == "finite_field_arithmetic":
-        # Check what task within the finite field arithmetic tasks we need to perform
         if exercise_task == "addition":
-            # Solve finite field arithmetic addition exercise
-            pass
+            return {"answer": None}
+
+    return {"answer": None}
 
 
-def solve_from_file(exercise_location: str) -> object:
+def solve_from_file(exercise_location: str):
     with open(exercise_location, "r") as exercise_file:
         exercise = json.load(exercise_file)
 
