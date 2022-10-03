@@ -1,8 +1,17 @@
 {
-    "type": "integer_arithmetic",
-    "operation": "subtraction",
-    "radix": 11,
-    "x": "-24",
-    "y": "39",
+    "type": "polynomial_arithmetic",
+    "task": "subtraction",
+    "integer_modulus": 3,
+    "f": [
+        1,
+        1,
+        1,
+        1,
+        2
+    ],
+    "g": [
+        2,
+        2
+    ],
     "points": 0.5
 }

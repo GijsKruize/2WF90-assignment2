@@ -1,21 +1,20 @@
 {
     "type": "finite_field_arithmetic",
-    "task": "subtraction",
-    "integer_modulus": 3,
+    "task": "division",
+    "integer_modulus": 7,
     "f": [
         1,
-        1,
-        1
+        0,
+        2
     ],
     "g": [
-        1,
-        2,
-        1
+        0
     ],
     "polynomial_modulus": [
+        6,
         2,
-        2,
-        2,
+        3,
+        6,
         1
     ],
     "points": 0.5

@@ -1,9 +1,25 @@
 {
-    "type": "modular_arithmetic",
-    "operation": "multiplication",
-    "radix": 10,
-    "x": "15",
-    "y": "56",
-    "modulus": "71",
+    "type": "finite_field_arithmetic",
+    "task": "addition",
+    "integer_modulus": 2,
+    "f": [
+        1,
+        0,
+        0,
+        1
+    ],
+    "g": [
+        0,
+        1,
+        1,
+        1
+    ],
+    "polynomial_modulus": [
+        1,
+        0,
+        0,
+        1,
+        1
+    ],
     "points": 0.5
 }

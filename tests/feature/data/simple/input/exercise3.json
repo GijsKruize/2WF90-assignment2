@@ -1,8 +1,21 @@
 {
-    "type": "integer_arithmetic",
-    "operation": "multiplication_karatsuba",
-    "radix": 12,
-    "x": "29",
-    "y": "-39",
+    "type": "polynomial_arithmetic",
+    "task": "long_division",
+    "integer_modulus": 5,
+    "f": [
+        2,
+        1,
+        1,
+        4,
+        2,
+        3
+    ],
+    "g": [
+        0,
+        3,
+        3,
+        1,
+        2
+    ],
     "points": 0.5
 }

@@ -1,9 +1,12 @@
 {
-    "type": "modular_arithmetic",
-    "operation": "addition",
-    "radix": 10,
-    "x": "78",
-    "y": "57",
-    "modulus": "51",
+    "type": "polynomial_arithmetic",
+    "task": "irreducibility_check",
+    "integer_modulus": 5,
+    "f": [
+        0,
+        0,
+        1,
+        4
+    ],
     "points": 0.5
 }

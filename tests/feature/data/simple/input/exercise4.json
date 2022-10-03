@@ -1,8 +1,17 @@
 {
-    "type": "integer_arithmetic",
-    "operation": "extended_euclidean_algorithm",
-    "radix": 7,
-    "x": "133",
-    "y": "143",
+    "type": "polynomial_arithmetic",
+    "task": "long_division",
+    "integer_modulus": 2,
+    "f": [
+        0,
+        1
+    ],
+    "g": [
+        1,
+        1,
+        0,
+        0,
+        1
+    ],
     "points": 0.5
 }

@@ -1,9 +1,7 @@
 {
-    "type": "modular_arithmetic",
-    "operation": "subtraction",
-    "radix": 4,
-    "x": "312",
-    "y": "1023",
-    "modulus": "1022",
+    "type": "polynomial_arithmetic",
+    "task": "irreducible_element_generation",
+    "integer_modulus": 3,
+    "degree": 3,
     "points": 0.5
 }

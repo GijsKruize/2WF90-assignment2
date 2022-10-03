@@ -1,5 +1,13 @@
 {
-    "answer-a": "0",
-    "answer-b": "1",
-    "answer-gcd": "64"
+    "answer-a": [
+        4
+    ],
+    "answer-b": [
+        0,
+        4,
+        1
+    ],
+    "answer-gcd": [
+        1
+    ]
 }

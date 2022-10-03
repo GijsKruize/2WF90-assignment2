@@ -1,8 +1,24 @@
 {
-    "type": "modular_arithmetic",
-    "operation": "inversion",
-    "radix": 10,
-    "x": "93",
-    "modulus": "21",
+    "type": "finite_field_arithmetic",
+    "task": "division",
+    "integer_modulus": 7,
+    "f": [
+        5,
+        0,
+        4
+    ],
+    "g": [
+        4,
+        2,
+        6,
+        3
+    ],
+    "polynomial_modulus": [
+        4,
+        1,
+        2,
+        3,
+        1
+    ],
     "points": 0.5
 }
