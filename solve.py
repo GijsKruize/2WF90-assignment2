@@ -8,7 +8,7 @@
 # group_number 
 #
 # Author names and student IDs:
-# author_name_1 (author_student_ID_1) 
+# Gijs Kruize (1658662) 
 # author_name_2 (author_student_ID_2)
 # author_name_3 (author_student_ID_3)
 # author_name_4 (author_student_ID_4)
