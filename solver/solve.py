@@ -5,28 +5,19 @@
 #
 #
 # Group number:
-# group_number 
+# group_number
 #
 # Author names and student IDs:
-# Gijs Kruize (1658662) 
-# author_name_2 (author_student_ID_2)
-# author_name_3 (author_student_ID_3)
-# author_name_4 (author_student_ID_4)
+# Gijs Kruize (1658662)
+# Christian Groothuis (1715534)
+# Jordy Verhoeven (1001249)
+# Niels Boonstra (1451294)
 ##
-# Import built-in json library for handling input/output 
+# Import built-in json library for handling input/output
 import json
-def solve_exercise(exercise_location : str, answer_location : str):
-    """
-    solves an exercise specified in the file located at exercise_location and
-    writes the answer to a file at answer_location. Note: the file at
-    answer_location might not exist yet and, hence, might still need to be created.
-    """
-    
-    # Open file at exercise_location for reading
-    with open(exercise_location, "r") as exercise_file:
-        # Deserialize JSON exercise data present in exercise_file to corresponding  Python exercise data 
-        exercise = json.load(exercise_file)
-        
+
+
+def solve(exercise: object):
     ### Parse and solve ###
     # Check type of exercise
     if exercise["type"] == "polynomial_arithmetic":
@@ -38,7 +29,7 @@ def solve_exercise(exercise_location : str, answer_location : str):
             # Solve polynomial arithmetic subtraction exercise
             pass
         # et cetera
-    else: # exercise["type"] == "finite_field_arithmetic"
+    else:  # exercise["type"] == "finite_field_arithmetic"
         # Check what task within the finite field arithmetic tasks we need to perform
         if exercise["task"] == "addition":
             # Solve finite field arithmetic addition exercise
@@ -49,3 +40,21 @@ def solve_exercise(exercise_location : str, answer_location : str):
     with open(answer_location, "w") as answer_file:
         # Serialize Python answer data (stored in answer) to JSON answer data and write it to answer_file
         json.dump(answer, answer_file, indent=4)
+
+
+def solve_from_file(exercise_location: str) -> object:
+    with open(exercise_location, "r") as exercise_file:
+        exercise = json.load(exercise_file)
+
+    return solve(exercise)
+
+
+def save_answer_to_file(answer_location: str, answer: object):
+    with open(answer_location, "w") as answer_file:
+        json.dump(answer, answer_file, indent=4)
+
+
+def solve_exercise(exercise_location: str, answer_location: str):
+    answer = solve_from_file(exercise_location)
+
+    save_answer_to_file(answer_location, answer)
