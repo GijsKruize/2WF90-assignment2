@@ -18,20 +18,26 @@ import json
 
 
 def solve(exercise: object):
+    exercise_type = exercise["type"]
+    exercise_task = exercise["task"]
+    integer_modulus = exercise["integer_modulus"]
+    f = exercise["f"]
+
+    print(exercise_type, exercise_task, integer_modulus, f)
     ### Parse and solve ###
     # Check type of exercise
-    if exercise["type"] == "polynomial_arithmetic":
+    if exercise_type == "polynomial_arithmetic":
         # Check what task within the polynomial arithmetic tasks we need to perform
-        if exercise["task"] == "addition":
-            # Solve polynomial arithmetic addition exercise
-            pass
-        elif exercise["task"] == "subtraction":
+        if exercise_task == "addition":
+            from polynomial_arithmetic.add import addition
+            return {"answer": addition(integer_modulus, f, exercise["g"])}
+        elif exercise_task == "subtraction":
             # Solve polynomial arithmetic subtraction exercise
             pass
         # et cetera
-    else:  # exercise["type"] == "finite_field_arithmetic"
+    elif exercise_type == "finite_field_arithmetic":
         # Check what task within the finite field arithmetic tasks we need to perform
-        if exercise["task"] == "addition":
+        if exercise_task == "addition":
             # Solve finite field arithmetic addition exercise
             pass
 
