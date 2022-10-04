@@ -1,0 +1,13 @@
+{
+    "type": "polynomial_arithmetic",
+    "task": "irreducibility_check",
+    "integer_modulus": 7,
+    "f": [
+        3,
+        6,
+        3,
+        2,
+        1
+    ],
+    "points": 0.5
+}

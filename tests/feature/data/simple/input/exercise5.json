@@ -1,0 +1,16 @@
+{
+    "type": "polynomial_arithmetic",
+    "task": "extended_euclidean_algorithm",
+    "integer_modulus": 5,
+    "f": [
+        4,
+        4,
+        0,
+        1
+    ],
+    "g": [
+        1,
+        1
+    ],
+    "points": 0.5
+}

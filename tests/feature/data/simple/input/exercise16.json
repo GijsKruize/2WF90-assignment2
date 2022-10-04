@@ -1,0 +1,17 @@
+{
+    "type": "finite_field_arithmetic",
+    "task": "primitivity_check",
+    "integer_modulus": 5,
+    "f": [
+        4,
+        3
+    ],
+    "polynomial_modulus": [
+        1,
+        4,
+        3,
+        0,
+        1
+    ],
+    "points": 0.5
+}

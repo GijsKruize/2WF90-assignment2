@@ -1,0 +1,20 @@
+{
+    "type": "finite_field_arithmetic",
+    "task": "primitive_element_generation",
+    "integer_modulus": 11,
+    "polynomial_modulus": [
+        5,
+        2,
+        8,
+        3,
+        8,
+        2,
+        5,
+        0,
+        7,
+        7,
+        1,
+        1
+    ],
+    "points": 0.5
+}

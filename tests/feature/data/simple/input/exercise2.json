@@ -1,0 +1,19 @@
+{
+    "type": "polynomial_arithmetic",
+    "task": "multiplication",
+    "integer_modulus": 7,
+    "f": [
+        6,
+        2,
+        2
+    ],
+    "g": [
+        6,
+        1,
+        2,
+        4,
+        5,
+        4
+    ],
+    "points": 0.5
+}
