@@ -31,3 +31,10 @@ T = TypeVar('T')
 
 def remove_duplicates(array: list[T]):
     return list(dict.fromkeys(array))
+
+
+
+def degree(f):
+    f = remove_leading_zeros(f)
+    d = len(f)
+    return d
