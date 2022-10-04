@@ -1,4 +1,4 @@
-from helpers import equalize_array_length
+from helpers import equalize_array_length, remove_leading_zeros
 
 
 def addition(modulus: int, f: list[int], g: list[int]):
@@ -12,4 +12,4 @@ def addition(modulus: int, f: list[int], g: list[int]):
     for i in range(max_length):
         result[i] = (f[i] + g[i]) % modulus
 
-    return result
+    return remove_leading_zeros(result)
