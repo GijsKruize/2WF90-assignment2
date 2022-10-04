@@ -31,7 +31,7 @@ def solve(exercise: object):
             return {"answer": None}
     elif exercise_type == "finite_field_arithmetic":
         if exercise_task == "addition":
-            return {"answer": None}
+            return {"answer": addition(integer_modulus, f, exercise["g"])}
 
     return {"answer": None}
 
