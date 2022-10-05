@@ -19,13 +19,14 @@ from polynomial_arithmetic.add import addition
 from polynomial_arithmetic.multiply import multiplication as polynomial_multiplication
 from finite_field_arithmetic.multiply import multiplication as finite_field_multiplication
 
+
 def solve(exercise: object):
     exercise_type = exercise["type"]
     exercise_task = exercise["task"]
     integer_modulus = exercise["integer_modulus"]
     f = exercise["f"]
 
-    if (integer_modulus <= 0):
+    if integer_modulus <= 0:
         return {"answer": None}
 
     if exercise_type == "polynomial_arithmetic":
