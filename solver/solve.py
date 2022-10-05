@@ -5,7 +5,7 @@
 #
 #
 # Group number:
-# group_number
+# 7
 #
 # Author names and student IDs:
 # Gijs Kruize (1658662)
@@ -16,6 +16,8 @@
 import json
 
 from polynomial_arithmetic.add import addition
+from polynomial_arithmetic.multiply import multiplication as polynomial_multiplication
+from finite_field_arithmetic.multiply import multiplication as finite_field_multiplication
 
 def solve(exercise: object):
     exercise_type = exercise["type"]
@@ -23,15 +25,27 @@ def solve(exercise: object):
     integer_modulus = exercise["integer_modulus"]
     f = exercise["f"]
 
+    if (integer_modulus <= 0):
+        return {"answer": None}
+
     if exercise_type == "polynomial_arithmetic":
         if exercise_task == "addition":
             return {"answer": addition(integer_modulus, f, exercise["g"])}
 
         elif exercise_task == "subtraction":
             return {"answer": None}
+
+        elif exercise_task == "multiplication":
+            return {"answer": polynomial_multiplication(integer_modulus, f, exercise["g"])}
+
     elif exercise_type == "finite_field_arithmetic":
+        polynomial_modulus = exercise["polynomial_modulus"]
+
         if exercise_task == "addition":
             return {"answer": addition(integer_modulus, f, exercise["g"])}
+
+        elif exercise_task == "multiplication":
+            return {"answer": finite_field_multiplication(integer_modulus, polynomial_modulus, f, exercise["g"])}
 
     return {"answer": None}
 
