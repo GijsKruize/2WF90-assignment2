@@ -18,6 +18,7 @@ import json
 from polynomial_arithmetic.add import addition
 from polynomial_arithmetic.multiply import multiplication as polynomial_multiplication
 from finite_field_arithmetic.multiply import multiplication as finite_field_multiplication
+from polynomial_arithmetic.subtract import subtraction
 
 def solve(exercise: object):
     exercise_type = exercise["type"]
@@ -33,7 +34,7 @@ def solve(exercise: object):
             return {"answer": addition(integer_modulus, f, exercise["g"])}
 
         elif exercise_task == "subtraction":
-            return {"answer": None}
+            return {"answer": subtraction(integer_modulus, f, exercise["g"])}
 
         elif exercise_task == "multiplication":
             return {"answer": polynomial_multiplication(integer_modulus, f, exercise["g"])}
@@ -43,6 +44,9 @@ def solve(exercise: object):
 
         if exercise_task == "addition":
             return {"answer": addition(integer_modulus, f, exercise["g"])}
+
+        elif exercise_task == "subtraction":
+            return {"answer": subtraction(integer_modulus, f, exercise["g"])}
 
         elif exercise_task == "multiplication":
             return {"answer": finite_field_multiplication(integer_modulus, polynomial_modulus, f, exercise["g"])}
