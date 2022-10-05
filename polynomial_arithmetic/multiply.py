@@ -1,7 +1,7 @@
 from helpers import equalize_array_length, remove_leading_zeros
 
 
-def multiplication(modulus: int, f: list[int], g: list[int]):
+def multiplication(modulus, f, g):
     f, g, max_length = equalize_array_length(f, g)
 
     # TODO rewrite
