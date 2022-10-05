@@ -1,7 +1,7 @@
 from typing import TypeVar
 
 
-def equalize_array_length(f: list[int], g: list[int]):
+def equalize_array_length(f, g):
     new_f = remove_leading_zeros(f)
     new_g = remove_leading_zeros(g)
 
@@ -15,10 +15,12 @@ def equalize_array_length(f: list[int], g: list[int]):
     return new_f, new_g, max_length
 
 
-def remove_leading_zeros(array: list[int]):
-    for i in range(len(array) - 1, -1, -1):
-        if array[i] != 0:
-            return array[:i + 1]
+def remove_leading_zeros(array):
+    rev_array = array[::-1]
+    for i in range(len(array)):
+        if rev_array[i] != 0:
+            rev_array = rev_array[i:]
+            return rev_array[::-1]
 
     if not array:
         return [0]
@@ -29,11 +31,10 @@ def remove_leading_zeros(array: list[int]):
 T = TypeVar('T')
 
 
-def remove_duplicates(array: list[T]):
+def remove_duplicates(array):
     return list(dict.fromkeys(array))
 
 
-def degree(f: list[int]):
+def degree(f):
     f = remove_leading_zeros(f)
-
     return len(f) - 1
