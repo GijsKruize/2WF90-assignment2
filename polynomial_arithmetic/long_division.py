@@ -2,7 +2,6 @@ from helpers import degree, equalize_array_length, remove_leading_zeros
 
 
 def long_division(mod: int, f: list[int], g: list[int]):
-
     # First we check if polynomial g is not 0 and the modulus is not 0
     if ((mod == 0) | (g == [0])):
         return ([], [])  # this will be our error state
