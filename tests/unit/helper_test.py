@@ -13,6 +13,8 @@ def test_equalize_array_length():
 def test_remove_leading_zeros():
     assert [10, 9, 1, 00, 1, 7] == remove_leading_zeros(
         [10, 9, 1, 00, 1, 7, 0, 0, 0, 0])
+    assert [0, 0, 0, 10, 9, 1, 00, 1, 7] == remove_leading_zeros(
+        [0, 0, 0, 10, 9, 1, 00, 1, 7, 0, 0, 0, 0])
     assert [0] == remove_leading_zeros([0])
     assert [0] == remove_leading_zeros([])
 
