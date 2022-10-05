@@ -5,21 +5,15 @@ import json
 
 
 def assert_exercise(kind: str, exercise: int):
-    if path.exists(f"data/{kind}/input/exercise{exercise}.json"):
-        answer = solve_from_file(
-            f"data/{kind}/input/exercise{exercise}.json")
-        with open(f"data/{kind}/output/answer{exercise}.json", "r") as answer_file:
-            expected_answer = json.load(answer_file)
-            assert answer == expected_answer
-    elif path.exists(f"tests/feature/data/{kind}/input/exercise{exercise}.json"):
-        with open(f"tests/feature/data/{kind}/output/answer{exercise}.json", "r") as answer_file:
-            answer = solve_from_file(
-                f"tests/feature/data/{kind}/input/exercise{exercise}.json")
-            expected_answer = json.load(answer_file)
-            assert answer == expected_answer
-    elif path.exists(f"feature/data/{kind}/input/exercise{exercise}.json"):
-        with open(f"feature/data/{kind}/output/answer{exercise}.json", "r") as answer_file:
-            answer = solve_from_file(
-                f"feature/data/{kind}/input/exercise{exercise}.json")
-            expected_answer = json.load(answer_file)
-            assert answer == expected_answer
+    if path.exists("data"):
+        base_path = "data"
+    elif path.exists("feature/data"):
+        base_path = "feature/data"
+    elif path.exists("tests/feature/data"):
+        base_path = "tests/feature/data"
+
+    answer = solve_from_file(
+        f"{base_path}/{kind}/input/exercise{exercise}.json")
+    with open(f"{base_path}/{kind}/output/answer{exercise}.json", "r") as answer_file:
+        expected_answer = json.load(answer_file)
+        assert answer == expected_answer
