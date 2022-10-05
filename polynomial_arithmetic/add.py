@@ -1,7 +1,7 @@
 from helpers import equalize_array_length, remove_leading_zeros
 
 
-def addition(modulus, f, g):
+def addition(modulus: int, f: list[int], g: list[int]):
     if modulus <= 0:
         return None
 
