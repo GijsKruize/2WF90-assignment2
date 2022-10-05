@@ -37,3 +37,7 @@ def degree(f: list[int]):
     f = remove_leading_zeros(f)
 
     return len(f) - 1
+
+
+def reduction(modulus: int, f: list[int]):
+    return [x % modulus for x in f]
