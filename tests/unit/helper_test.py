@@ -20,3 +20,9 @@ def test_remove_leading_zeros():
 def test_remove_duplicates():
     assert [1, 91, 34, 32, 42] == remove_duplicates([1, 1, 91, 34, 32, 42, 42])
     assert [] == remove_duplicates([])
+
+
+def test_degree():
+    assert 3 == degree([1, 9, 2, 1])
+    assert 0 == degree([0])
+    assert 0 == degree([1])
