@@ -9,8 +9,8 @@ def equalize_array_length(f: list[int], g: list[int]):
     g_length = len(new_g)
     max_length = max(f_length, g_length)
 
-    new_f = new_f + [0] * (max_length - f_length)
-    new_g = new_g + [0] * (max_length - g_length)
+    new_f += [0] * (max_length - f_length)
+    new_g += [0] * (max_length - g_length)
 
     return new_f, new_g, max_length
 
