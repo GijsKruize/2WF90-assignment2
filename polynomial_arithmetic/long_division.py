@@ -7,8 +7,15 @@ from polynomial_arithmetic.multiply import multiplication
 def long_division(modulus: int, f: list[int], g: list[int]):
     if modulus <= 0:
         return None, None
+
+    if remove_leading_zeros(f) == [0]:
+        return [0], [0]
+
     if remove_leading_zeros(g) == [0]:
         return None, None
+
+    if len(remove_leading_zeros(g)) > len(remove_leading_zeros(f)):
+        return [0], reduction(modulus, f)
 
     f, g, max_length = equalize_array_length(f, g)
 
@@ -30,9 +37,10 @@ def long_division(modulus: int, f: list[int], g: list[int]):
 
         q[degree] = leading_coefficient
 
-        result = multiplication(
-            modulus, [0] * degree + [leading_coefficient], g)
-        r = subtraction(modulus, r, result)
+        multiplication_factor = [0] * degree + [leading_coefficient]
+        intermediate = multiplication(
+            modulus, multiplication_factor, g)
+        r = subtraction(modulus, r, intermediate)
         r = reduction(modulus, r)
 
-    return remove_leading_zeros(q), remove_leading_zeros(r)
+    return remove_leading_zeros(q), r
