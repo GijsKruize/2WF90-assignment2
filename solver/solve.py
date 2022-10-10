@@ -16,6 +16,7 @@
 import json
 
 from polynomial_arithmetic.add import addition
+from polynomial_arithmetic.long_division import long_division
 from polynomial_arithmetic.multiply import multiplication as polynomial_multiplication
 from finite_field_arithmetic.multiply import multiplication as finite_field_multiplication
 from polynomial_arithmetic.subtract import subtraction
@@ -39,6 +40,10 @@ def solve(exercise: object):
 
         elif exercise_task == "multiplication":
             return {"answer": polynomial_multiplication(integer_modulus, f, exercise["g"])}
+
+        elif exercise_task == "long_division":
+            q, r = long_division(integer_modulus, f, exercise["g"])
+            return {"answer-q": q, "answer-r": r}
 
     elif exercise_type == "finite_field_arithmetic":
         polynomial_modulus = exercise["polynomial_modulus"]
