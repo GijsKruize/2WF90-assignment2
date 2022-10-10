@@ -41,3 +41,7 @@ def degree(f: list[int]):
 
 def reduction(modulus: int, f: list[int]):
     return [x % modulus for x in f]
+
+
+def leading_coefficent(f: list[int]):
+    return remove_leading_zeros(f)[-1]
