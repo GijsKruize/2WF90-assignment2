@@ -1,7 +1,8 @@
 import random
 from irreducible_check import irreducible_test
 
-def findIrred(n, p):
+
+def find_irred(n, p):
     f = [random.randint(1, p-1)]
     i = 0
 
