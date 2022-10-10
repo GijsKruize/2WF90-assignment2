@@ -9,7 +9,7 @@ def assert_exercise(kind: str, exercise: int):
         base_path = "data"
     elif path.exists("feature/data"):
         base_path = "feature/data"
-    elif path.exists("tests/feature/data"):
+    else:
         base_path = "tests/feature/data"
 
     answer = solve_from_file(

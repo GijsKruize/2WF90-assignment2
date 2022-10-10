@@ -14,7 +14,7 @@ def irreducible_test(f, p):
 
     for x in list_div:
         degree_g = pow(p, x)
-        g = [0] * (degree_g)
+        g = [0] * degree_g
         g[0] = 1
         g[degree_g - 2] = -1
         answer = euclidean[f, g, p]

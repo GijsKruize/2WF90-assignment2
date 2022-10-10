@@ -6,9 +6,9 @@ from polynomial_arithmetic.multiply import multiplication
 
 def long_division(modulus: int, f: list[int], g: list[int]):
     if modulus <= 0:
-        return None
+        return None, None
     if remove_leading_zeros(g) == [0]:
-        return None
+        return None, None
 
     f, g, max_length = equalize_array_length(f, g)
 
@@ -26,8 +26,6 @@ def long_division(modulus: int, f: list[int], g: list[int]):
                 get_leading_coefficent(g)
 
         leading_coefficient = int(leading_coefficient)
-        leading_r_coefficient = int(leading_r_coefficient)
-
         degree = get_degree(r) - get_degree(g)
 
         q[degree] = leading_coefficient
