@@ -28,3 +28,8 @@ def test_degree():
     assert 3 == degree([1, 9, 2, 1])
     assert 0 == degree([0])
     assert 0 == degree([1])
+
+
+def test_leading_coefficient():
+    assert 4 == leading_coefficent([1, 2, 3, 9, 45, 5, 4, 0, 0, 0])
+    assert 0 == leading_coefficent([0, 0, 0, 0, 0, 0, 0])
