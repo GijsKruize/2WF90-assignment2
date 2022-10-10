@@ -1,33 +1,40 @@
-from helpers import degree, equalize_array_length, remove_leading_zeros
+
+from helpers import equalize_array_length, get_leading_coefficent, reduction, remove_leading_zeros, get_degree
+from polynomial_arithmetic.subtract import subtraction
+from polynomial_arithmetic.multiply import multiplication
 
 
-def long_division(mod: int, f: list[int], g: list[int]):
-    # First we check if polynomial g is not 0 and the modulus is not 0
-    if (mod == 0) | (g == [0]):
-        return [], []  # this will be our error state
+def long_division(modulus: int, f: list[int], g: list[int]):
+    if modulus <= 0:
+        return None
+    if remove_leading_zeros(g) == [0]:
+        return None
 
-    # If the denominator is bigger than the numerator, it will return the numerator as the remainder
-    if len(remove_leading_zeros(f)) >= len(remove_leading_zeros(g)):
-        f, g, _ = equalize_array_length(f, g)
-    else:
-        return 0, f
+    f, g, max_length = equalize_array_length(f, g)
 
-    dG = degree(g)
-    dF = degree(f)
+    q = max_length * [0]
+    r = f
 
-    if dG < 0:
-        raise ZeroDivisionError
+    while get_degree(g) <= get_degree(r):
+        leading_r_coefficient = get_leading_coefficent(r)
+        leading_coefficient = leading_r_coefficient / get_leading_coefficent(g)
 
-    if dF >= dG:
-        q = [0] * dF
+        while leading_coefficient != int(leading_coefficient):
+            leading_r_coefficient += modulus
 
-        while dF >= dG:
-            d = [0] * (dF - dG) + g
-            mult = q[dF - dG] = f[-1] / float(d[-1])
-            d = [coeff * mult for coeff in d]
-            f = [coeffN - coeffd for coeffN, coeffd in zip(g, d)]
-            dF = degree(f)
+            leading_coefficient = leading_r_coefficient / \
+                get_leading_coefficent(g)
 
-        r = f
+        leading_coefficient = int(leading_coefficient)
+        leading_r_coefficient = int(leading_r_coefficient)
 
-    return q, r
+        degree = get_degree(r) - get_degree(g)
+
+        q[degree] = leading_coefficient
+
+        result = multiplication(
+            modulus, [0] * degree + [leading_coefficient], g)
+        r = subtraction(modulus, r, result)
+        r = reduction(modulus, r)
+
+    return remove_leading_zeros(q), remove_leading_zeros(r)
