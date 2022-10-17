@@ -14,6 +14,7 @@
 # Niels Boonstra (1451294)
 ##
 import json
+from finite_field_arithmetic.primitive_check import primitive_check
 
 from polynomial_arithmetic.add import addition
 from polynomial_arithmetic.long_division import long_division
@@ -57,6 +58,8 @@ def solve(exercise: object):
         elif exercise_task == "multiplication":
             return {"answer": finite_field_multiplication(integer_modulus, polynomial_modulus, f, exercise["g"])}
 
+        elif exercise_task == "primitve_check":
+            return {"answer" : primitive_check(integer_modulus,f,polynomial_modulus)}
     return {"answer": None}
 
 
