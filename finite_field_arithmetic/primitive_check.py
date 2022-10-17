@@ -3,32 +3,26 @@
 from finite_field_arithmetic.multiply import multiplication
 
 
-def primitive_check(mod, polynom, a):
+def primitive_check(mod, polynom, polynomial_modulus):
     q = mod ** (len(polynom)-1)
     prime_divs = prime_factorization(q-1)
     k=len(prime_divs)
     i=1
 
-    while 1 <= k and compute_power(mod, polynom, a, prime_divs, q, i):
+    while i <= k and compute_power(mod, polynom, polynomial_modulus, prime_divs, q, i):
         i = i+1
     
-    if i <= k:
-        return False
-    else:
-        return True
+    return i > k
 
-def compute_power(mod, polynom, a, prime_divs, q, i):
-    j = i-1 #this makes shure we start at index 0 instead of 1
-    power = ((q-1)/prime_divs[j])
-    a_mult = a #initialise a^1
+def compute_power(mod, polynom, polynomial_modulus, prime_divs, q, i):
+    i = i-1 #this makes shure we start at index 0 instead of 1
+    power = ((q-1)/prime_divs[i])
+    pol_mod_mult = polynomial_modulus #initialise a^1
 
-    for x in range(int(power-1)):
-        z,a_mult = multiplication(mod, polynom, a_mult)
+    for _ in range(int(power-1)):
+        z,pol_mod_mult = multiplication(mod, polynomial_modulus,polynom, pol_mod_mult)
     
-    if z== "1":
-        return False
-    else:
-        return True
+    return z != "1"
 
 def prime_factorization(f):
     primes = []

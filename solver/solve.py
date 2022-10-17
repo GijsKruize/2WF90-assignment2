@@ -56,7 +56,7 @@ def solve(exercise: object):
             return {"answer": subtraction(integer_modulus, f, exercise["g"])}
 
         elif exercise_task == "multiplication":
-            return {"answer": finite_field_multiplication(integer_modulus, polynomial_modulus, f, exercise["g"])}
+            return {"answer": finite_field_multiplication(integer_modulus, polynomial_modulus, f, exercise["g"])[1]}
 
         elif exercise_task == "primitivity_check":
             return {"answer" : primitive_check(integer_modulus,f,polynomial_modulus)}
