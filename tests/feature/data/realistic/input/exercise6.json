@@ -1,28 +1,13 @@
 {
-    "type": "finite_field_arithmetic",
-    "task": "primitivity_check",
-    "integer_modulus": 3,
+    "type": "polynomial_arithmetic",
+    "task": "irreducibility_check",
+    "integer_modulus": 2,
     "f": [
-        2,
-        0,
-        1,
-        1,
-        0,
-        0,
-        2
-    ],
-    "polynomial_modulus": [
-        1,
-        1,
-        1,
-        1,
-        2,
-        2,
         1,
         0,
         1,
         1,
-        2,
+        1,
         1
     ],
     "points": 0.5

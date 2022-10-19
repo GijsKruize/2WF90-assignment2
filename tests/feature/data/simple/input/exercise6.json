@@ -1,10 +1,9 @@
 {
     "type": "polynomial_arithmetic",
     "task": "extended_euclidean_algorithm",
-    "integer_modulus": 5,
+    "integer_modulus": 2,
     "f": [
-        1,
-        2,
+        0,
         1
     ],
     "g": [

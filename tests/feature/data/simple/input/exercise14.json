@@ -1,20 +1,18 @@
 {
     "type": "finite_field_arithmetic",
     "task": "division",
-    "integer_modulus": 7,
+    "integer_modulus": 2,
     "f": [
         1,
-        0,
-        2
+        1
     ],
     "g": [
         0
     ],
     "polynomial_modulus": [
-        6,
-        2,
-        3,
-        6,
+        1,
+        0,
+        1,
         1
     ],
     "points": 0.5

@@ -1,23 +1,18 @@
 {
     "type": "finite_field_arithmetic",
     "task": "addition",
-    "integer_modulus": 2,
+    "integer_modulus": 5,
     "f": [
-        1,
         0,
-        0,
-        1
+        2
     ],
     "g": [
-        0,
-        1,
-        1,
-        1
+        4,
+        3
     ],
     "polynomial_modulus": [
         1,
-        0,
-        0,
+        4,
         1,
         1
     ],
