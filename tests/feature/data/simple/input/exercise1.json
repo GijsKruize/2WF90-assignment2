@@ -1,17 +1,16 @@
 {
     "type": "polynomial_arithmetic",
     "task": "subtraction",
-    "integer_modulus": 3,
+    "integer_modulus": 2,
     "f": [
-        1,
-        1,
-        1,
-        1,
-        2
+        0,
+        0,
+        0,
+        1
     ],
     "g": [
-        2,
-        2
+        0,
+        1
     ],
     "points": 0.5
 }

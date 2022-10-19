@@ -22,7 +22,7 @@ def long_division(modulus: int, f: list[int], g: list[int]):
     q = max_length * [0]
     r = f
 
-    while get_degree(g) <= get_degree(r):
+    while r != [0] and get_degree(g) <= get_degree(r):
         leading_r_coefficient = get_leading_coefficent(r)
         leading_coefficient = leading_r_coefficient / get_leading_coefficent(g)
 
