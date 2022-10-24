@@ -3,17 +3,17 @@
     "task": "multiplication",
     "integer_modulus": 5,
     "f": [
-        4,
-        1
+        2,
+        2
     ],
     "g": [
         1,
-        1
+        4
     ],
     "polynomial_modulus": [
-        1,
         2,
-        0,
+        4,
+        4,
         1
     ],
     "points": 0.5

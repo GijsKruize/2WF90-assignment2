@@ -4,13 +4,12 @@ from helpers import equalize_array_length, remove_leading_zeros
 def multiplication(modulus: int, f: list[int], g: list[int]):
     f, g, max_length = equalize_array_length(f, g)
 
-    # TODO rewrite
-    result_length = (2 * len(f)) - 1
-    result = [0] * result_length
+    result = 2 * max_length * [0]
 
     for i in range(max_length):
         for j in range(max_length):
-            result[i + j] += f[i] * g[j]
-            result[i + j] = result[i + j] % modulus
+            index = i + j
+            result[index] += f[i] * g[j]
+            result[index] = result[index] % modulus
 
     return remove_leading_zeros(result)

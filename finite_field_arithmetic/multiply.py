@@ -5,4 +5,4 @@ from polynomial_arithmetic.multiply import multiplication as polynomial_multipli
 def multiplication(modulus: int, polynomial_modulus: list[int], f: list[int], g: list[int]):
     result = polynomial_multiplication(modulus, f, g)
 
-    return long_division(modulus, polynomial_modulus, result)[0]
+    return long_division(modulus, result, polynomial_modulus)

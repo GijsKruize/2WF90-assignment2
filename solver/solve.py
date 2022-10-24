@@ -14,11 +14,13 @@
 # Niels Boonstra (1451294)
 ##
 import json
+from finite_field_arithmetic.primitive_check import primitive_check
 
 from polynomial_arithmetic.add import addition
+from polynomial_arithmetic.long_division import long_division
 from polynomial_arithmetic.multiply import multiplication as polynomial_multiplication
 from finite_field_arithmetic.multiply import multiplication as finite_field_multiplication
-from polynomial_arithmetic.subtraction import subtraction
+from polynomial_arithmetic.subtract import subtraction
 
 
 def solve(exercise: object):
@@ -40,6 +42,10 @@ def solve(exercise: object):
         elif exercise_task == "multiplication":
             return {"answer": polynomial_multiplication(integer_modulus, f, exercise["g"])}
 
+        elif exercise_task == "long_division":
+            q, r = long_division(integer_modulus, f, exercise["g"])
+            return {"answer-q": q, "answer-r": r}
+
     elif exercise_type == "finite_field_arithmetic":
         polynomial_modulus = exercise["polynomial_modulus"]
 
@@ -50,8 +56,10 @@ def solve(exercise: object):
             return {"answer": subtraction(integer_modulus, f, exercise["g"])}
 
         elif exercise_task == "multiplication":
-            return {"answer": finite_field_multiplication(integer_modulus, polynomial_modulus, f, exercise["g"])}
+            return {"answer": finite_field_multiplication(integer_modulus, polynomial_modulus, f, exercise["g"])[1]}
 
+        elif exercise_task == "primitivity_check":
+            return {"answer" : primitive_check(integer_modulus,f,polynomial_modulus)}
     return {"answer": None}
 
 
