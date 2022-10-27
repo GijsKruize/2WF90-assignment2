@@ -22,49 +22,61 @@ from polynomial_arithmetic.long_division import long_division
 from polynomial_arithmetic.multiply import multiplication as polynomial_multiplication
 from finite_field_arithmetic.multiply import multiplication as finite_field_multiplication
 from polynomial_arithmetic.subtract import subtraction
-
+from polynomial_arithmetic.euclid import euclid
+from polynomial_arithmetic.irredCheck import irreducibleTest
+from polynomial_arithmetic.Generator import find_irreducible
 
 def solve(exercise: object):
     exercise_type = exercise["type"]
     exercise_task = exercise["task"]
     integer_modulus = exercise["integer_modulus"]
-    f = exercise["f"]
+
 
     if integer_modulus <= 0:
         return {"answer": None}
 
     if exercise_type == "polynomial_arithmetic":
         if exercise_task == "addition":
-            return {"answer": addition(integer_modulus, f, exercise["g"])}
+            return {"answer": addition(integer_modulus, exercise["f"], exercise["g"])}
 
         elif exercise_task == "subtraction":
-            return {"answer": subtraction(integer_modulus, f, exercise["g"])}
+            return {"answer": subtraction(integer_modulus, exercise["f"], exercise["g"])}
 
         elif exercise_task == "multiplication":
-            return {"answer": polynomial_multiplication(integer_modulus, f, exercise["g"])}
+            return {"answer": polynomial_multiplication(integer_modulus, exercise["f"], exercise["g"])}
 
         elif exercise_task == "long_division":
-            q, r = long_division(integer_modulus, f, exercise["g"])
+            q, r = long_division(integer_modulus, exercise["f"], exercise["g"])
             return {"answer-q": q, "answer-r": r}
 
         elif exercise_task == "extended_euclidean_algorithm":
-            gcd, a, b = euclid(integer_modulus, f, exercise["g"])
+            a, b, gcd = euclid(integer_modulus, exercise["f"], exercise["g"])
             return {"answer-a": a, "answer-b": b, "answer-gcd": gcd}
+
+        elif exercise_task == "irreducibility_check":
+            return {"answer": irreducibleTest(integer_modulus, exercise["f"])}
+
+        elif exercise_task == "extended_euclidean_algorithm":
+            q, r, a = euclid(integer_modulus, exercise["f"], exercise["g"])
+            return {"answer-a": q, "answer-b": r, "answer-gcd": a}
+
+        elif exercise_task == "irreducible_element_generation":
+            return {"answer": find_irreducible(integer_modulus,exercise["degree"])}
 
     elif exercise_type == "finite_field_arithmetic":
         polynomial_modulus = exercise["polynomial_modulus"]
 
         if exercise_task == "addition":
-            return {"answer": addition(integer_modulus, f, exercise["g"])}
+            return {"answer": addition(integer_modulus, exercise["f"], exercise["g"])}
 
         elif exercise_task == "subtraction":
-            return {"answer": subtraction(integer_modulus, f, exercise["g"])}
+            return {"answer": subtraction(integer_modulus, exercise["f"], exercise["g"])}
 
         elif exercise_task == "multiplication":
-            return {"answer": finite_field_multiplication(integer_modulus, polynomial_modulus, f, exercise["g"])[1]}
+            return {"answer": finite_field_multiplication(integer_modulus, polynomial_modulus, exercise["f"], exercise["g"])[1]}
 
         elif exercise_task == "primitivity_check":
-            return {"answer" : primitive_check(integer_modulus,f,polynomial_modulus)}
+            return {"answer" : primitive_check(integer_modulus,exercise["f"],polynomial_modulus)}
     return {"answer": None}
 
 

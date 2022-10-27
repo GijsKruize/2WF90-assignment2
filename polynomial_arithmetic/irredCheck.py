@@ -1,10 +1,11 @@
-import long_division
+from polynomial_arithmetic.euclid import euclid
+from polynomial_arithmetic.long_division import long_division
 
-def irreducibleTest(f, p):
+def irreducibleTest(p,f):
     n = len(f)-1
     list_of_primes=findPrimes(n)
     k=len(list_of_primes)
-    list_div=[n]
+    list_div=[]
     m=0;
     while m<k:
         list_div.append(int(n/list_of_primes[m]))
@@ -14,10 +15,12 @@ def irreducibleTest(f, p):
         degreeG = pow(p, x)
         g = [0] * (degreeG)
         g[0] = 1
-        g[degreeG - 2] = -1
-        answer=poly_euclid[f, g, p]
-        if answer !=1:
+        g[degreeG - 2] = p-1
+        a,b,answer=euclid(p,f, g)
+
+        if answer !=[1]:
             return False
+
     degreek = pow(p, n)
     k = [0] * (degreek)
     k[0] = 1
@@ -25,7 +28,7 @@ def irreducibleTest(f, p):
     q,r=long_division[p, k, f]
     if all(item == 0 for item in q):
         return True
-    return False
+    return True
 
 
 def findPrimes(n):
