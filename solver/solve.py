@@ -14,7 +14,7 @@
 # Niels Boonstra (1451294)
 ##
 import json
-from finite_field_arithmetic.primitive_check import primitive_check
+from finite_field_arithmetic.primitive_check import generate_primitve_element, primitive_check
 
 from polynomial_arithmetic.add import addition
 from polynomial_arithmetic.euclid import euclid
@@ -28,23 +28,23 @@ def solve(exercise: object):
     exercise_type = exercise["type"]
     exercise_task = exercise["task"]
     integer_modulus = exercise["integer_modulus"]
-    f = exercise["f"]
+    
 
     if integer_modulus <= 0:
         return {"answer": None}
 
     if exercise_type == "polynomial_arithmetic":
         if exercise_task == "addition":
-            return {"answer": addition(integer_modulus, f, exercise["g"])}
+            return {"answer": addition(integer_modulus, exercise["f"], exercise["g"])}
 
         elif exercise_task == "subtraction":
-            return {"answer": subtraction(integer_modulus, f, exercise["g"])}
+            return {"answer": subtraction(integer_modulus, exercise["f"], exercise["g"])}
 
         elif exercise_task == "multiplication":
-            return {"answer": polynomial_multiplication(integer_modulus, f, exercise["g"])}
+            return {"answer": polynomial_multiplication(integer_modulus, exercise["f"], exercise["g"])}
 
         elif exercise_task == "long_division":
-            q, r = long_division(integer_modulus, f, exercise["g"])
+            q, r = long_division(integer_modulus, exercise["f"], exercise["g"])
             return {"answer-q": q, "answer-r": r}
 
         elif exercise_task == "extended_euclidean_algorithm":
@@ -55,16 +55,20 @@ def solve(exercise: object):
         polynomial_modulus = exercise["polynomial_modulus"]
 
         if exercise_task == "addition":
-            return {"answer": addition(integer_modulus, f, exercise["g"])}
+            return {"answer": addition(integer_modulus, exercise["f"], exercise["g"])}
 
         elif exercise_task == "subtraction":
-            return {"answer": subtraction(integer_modulus, f, exercise["g"])}
+            return {"answer": subtraction(integer_modulus, exercise["f"], exercise["g"])}
 
         elif exercise_task == "multiplication":
-            return {"answer": finite_field_multiplication(integer_modulus, polynomial_modulus, f, exercise["g"])[1]}
+            return {"answer": finite_field_multiplication(integer_modulus, polynomial_modulus, exercise["f"], exercise["g"])[1]}
 
         elif exercise_task == "primitivity_check":
-            return {"answer" : primitive_check(integer_modulus,f,polynomial_modulus)}
+            return {"answer" : primitive_check(integer_modulus,exercise["f"],polynomial_modulus)}
+
+        elif exercise_task == "primitive_element_generation":
+            return {"answer" : generate_primitve_element(integer_modulus,polynomial_modulus)}
+
     return {"answer": None}
 
 
