@@ -11,21 +11,24 @@ def euclid(modulus: int, f: list[int], g: list[int]):
     if modulus <= 0:
         return None, None
 
-    x1 = [1]
-    x2 = [0]
-    y1 = [0]
-    y2 = [1]
+    r = [a, b]
+    x = [[1], [0]]
+    y = [[0], [1]]
+    i = 1
 
-    while max(b) > 0:
-        quotient, r = long_division(modulus, a, b)
-        a = b
-        b = r
-        x3 = subtraction(modulus, x1, multiplication(modulus, quotient, x2))
-        y3 = subtraction(modulus, y1, multiplication(modulus, quotient, y2))
-        x1 = x2
-        y1 = y2
-        x2 = x3
-        y2 = y3
+    while max(r[i]):
+        quotient, remainder = long_division(modulus, r[i-1], r[i])
+        r.append(remainder)
+        x.append(subtraction(modulus, x[i-1], multiplication(modulus, quotient, x[i])))
+        y.append(subtraction(modulus, y[i-1], multiplication(modulus, quotient, y[i])))
+        i += 1
 
-    return a, x1, y1
+    gcd = r[i-1]
+    a1 = (-1)**(i-1)*y[i]
+    b1 = (-1)**i*x[i]
+
+    if not b1:
+        b1 = [0]
+
+    return gcd, a1, b1
 
