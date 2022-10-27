@@ -48,7 +48,7 @@ def solve(exercise: object):
             return {"answer-q": q, "answer-r": r}
 
         elif exercise_task == "extended_euclidean_algorithm":
-            gcd, a, b = euclid(integer_modulus, f, exercise["g"])
+            gcd, a, b = euclid(integer_modulus, exercise["f"], exercise["g"])
             return {"answer-a": a, "answer-b": b, "answer-gcd": gcd}
 
     elif exercise_type == "finite_field_arithmetic":

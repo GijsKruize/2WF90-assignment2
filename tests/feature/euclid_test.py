@@ -5,7 +5,7 @@ def test_realistic_exercise_1():
     assert_exercise("realistic", 11)
 
 
-def test_realistic_exercise_2():
+def     test_realistic_exercise_2():
     assert_exercise("realistic", 16)
 
 
