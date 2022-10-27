@@ -17,6 +17,7 @@ import json
 from finite_field_arithmetic.primitive_check import primitive_check
 
 from polynomial_arithmetic.add import addition
+from polynomial_arithmetic.euclid import euclid
 from polynomial_arithmetic.long_division import long_division
 from polynomial_arithmetic.multiply import multiplication as polynomial_multiplication
 from finite_field_arithmetic.multiply import multiplication as finite_field_multiplication
@@ -45,6 +46,10 @@ def solve(exercise: object):
         elif exercise_task == "long_division":
             q, r = long_division(integer_modulus, f, exercise["g"])
             return {"answer-q": q, "answer-r": r}
+
+        elif exercise_task == "extended_euclidean_algorithm":
+            gcd, a, b = euclid(integer_modulus, f, exercise["g"])
+            return {"answer-a": a, "answer-b": b, "answer-gcd": gcd}
 
     elif exercise_type == "finite_field_arithmetic":
         polynomial_modulus = exercise["polynomial_modulus"]
